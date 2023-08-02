@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://04B_30__.TTF" type="DynamicFontData" id=1]
+[ext_resource path="res://Menu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 64
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 16
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Title"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title:rect_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -15.0, 15.0 ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 1025.0
+margin_bottom = 602.0
+color = Color( 0.254902, 0.294118, 0.694118, 0.792157 )
+
+[node name="Play" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -113.5
+margin_top = -35.5
+margin_right = 113.5
+margin_bottom = 35.5
+custom_fonts/font = SubResource( 1 )
+text = "Play"
+flat = true
+
+[node name="Leaderboard" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -300.0
+margin_top = 150.0
+margin_right = 298.0
+margin_bottom = 221.0
+custom_fonts/font = SubResource( 1 )
+text = "Leaderboard"
+flat = true
+
+[node name="Title" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -349.0
+margin_top = 80.0
+margin_right = 343.0
+margin_bottom = 213.0
+rect_pivot_offset = Vector2( 338, 71 )
+custom_fonts/font = SubResource( 2 )
+text = " Leaderboard 
+Tutorial"
+align = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Title"
+anims/RESET = SubResource( 3 )
+anims/Title = SubResource( 4 )
+
+[connection signal="pressed" from="Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="Leaderboard" to="." method="_on_Leaderboard_pressed"]

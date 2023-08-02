@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://04B_30__.TTF" type="DynamicFontData" id=2]
+[ext_resource path="res://Player_Names.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="Leaderboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -4.0
+margin_top = 1.0
+margin_right = 1023.0
+margin_bottom = 597.0
+color = Color( 0.2, 0.2, 0.203922, 0.792157 )
+
+[node name="Leaderboard_shadow" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -444.0
+margin_top = -217.0
+margin_right = 445.921
+margin_bottom = 204.0
+color = Color( 0.47451, 0.47451, 0.47451, 0.882353 )
+
+[node name="Leaderboard_BG" type="ColorRect" parent="."]
+margin_left = 108.0
+margin_top = 101.0
+margin_right = 937.0
+margin_bottom = 477.0
+color = Color( 0.172549, 0.164706, 0.196078, 1 )
+
+[node name="Name_title_label" type="Label" parent="."]
+margin_left = 402.0
+margin_top = 102.0
+margin_right = 512.0
+margin_bottom = 141.0
+custom_fonts/font = SubResource( 1 )
+text = "Name"
+align = 1
+
+[node name="Pos_title_label" type="Label" parent="."]
+margin_left = 179.0
+margin_top = 102.0
+margin_right = 266.0
+margin_bottom = 141.0
+custom_fonts/font = SubResource( 1 )
+text = "Pos"
+align = 1
+
+[node name="Score_Title_Label" type="Label" parent="."]
+margin_left = 604.0
+margin_top = 103.0
+margin_right = 738.0
+margin_bottom = 142.0
+custom_fonts/font = SubResource( 1 )
+text = "Score"
+align = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 226.0
+margin_top = 139.0
+margin_right = 784.0
+margin_bottom = 469.0
+scroll_horizontal_enabled = false
+
+[node name="Player_Names" type="GridContainer" parent="ScrollContainer"]
+custom_constants/hseparation = 180
+columns = 3
+script = ExtResource( 3 )
