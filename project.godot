@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "",
+"base": "EditorVCSInterface",
 "class": "GitAPI",
 "language": "NativeScript",
 "path": "res://addons/godot-git-plugin/git_api.gdns"
@@ -28,6 +28,7 @@ config/icon="res://icon.png"
 
 SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 Globals="*res://Globals.gd"
+Saver="*res://Saver.gd"
 
 [display]
 
